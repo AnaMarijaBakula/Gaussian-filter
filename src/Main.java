@@ -14,11 +14,11 @@ public class Main {
             BufferedImage blurred = GaussianFilter.applyGaussianBlur(originalImage, radius);
 
             long endTimeSequential = System.nanoTime();
-            long totalProcessingTime = (endTimeSequential - startTimeSequential) / 1_000_000;
+            long totalProcessingTime = (endTimeSequential - startTimeSequential) / 1_000_000_000;
 
             ImageIO.write(blurred, "png", new File("images/blurredImageSequential.png"));
 
-            System.out.println("Vrijeme obrade slike sekvencijalno: " + totalProcessingTime + " ms");
+            System.out.println("Vrijeme obrade slike sekvencijalno: " + totalProcessingTime + " s");
 
             System.out.println("---------------------------------");
 
@@ -27,11 +27,11 @@ public class Main {
             BufferedImage blurredParallel = GaussianFilterParallel.applyGaussianBlurParallel(originalImage, radius);
 
             long endTimeParallel = System.nanoTime();
-            long totalProcessingTimeParallel = (endTimeParallel - startTimeParallel) / 1_000_000;
+            long totalProcessingTimeParallel = (endTimeParallel - startTimeParallel) / 1_000_000_000;
 
             ImageIO.write(blurredParallel, "png", new File("images/blurredImageParallel.png"));
 
-            System.out.println("Vrijeme obrade slike paralelno: " + totalProcessingTimeParallel + " ms");
+            System.out.println("Vrijeme obrade slike paralelno: " + totalProcessingTimeParallel + " s");
 
 
 
